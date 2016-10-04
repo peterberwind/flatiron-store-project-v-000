@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def show
-    #code
+    @order = Order.find(params[:id])
   end
 
 end
