@@ -1,3 +1,10 @@
+# == Schema Information
+#
+# Table name: carts
+#
+#  id :integer          not null, primary key
+#
+
 require 'rails_helper'
 
 RSpec.describe Cart, :type => :model do

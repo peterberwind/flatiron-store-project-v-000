@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  id          :integer          not null, primary key
+#  inventory   :integer
+#  category_id :integer
+#  title       :string
+#  price       :integer
+#
+
 require 'rails_helper'
 
 RSpec.describe Item, :type => :model do
