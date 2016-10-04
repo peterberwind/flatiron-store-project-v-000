@@ -16,7 +16,9 @@
         <div class="caption">
           <h3><%= link_to item.title, item_path(item) %></h3>
           <p><%= number_to_currency(item.price) %></p>
-          <%= button_to 'Add to Cart', line_items_path(item_id: item), class: "btn btn-primary" %>
+          <% if current_user %>
+            <%= button_to 'Add to Cart', line_items_path(item_id: item), class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
     </div>
