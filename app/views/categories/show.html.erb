@@ -1,27 +1,13 @@
-<div class="col-md-4">
-  <ul class="list-group">
-    <% @categories.each do |category| %>
-    <li class="list-group-item"><%= link_to category.title, category_path(category) %></li>
-    <% end %>
-  </ul>
-</div>
 
-<div class="col-md-8">
-  <h1><%= @category.title %></h1>
-  <div class="row">
-    <% @category.items.each do |item| %>
-    <div class="col-sm-6 col-md-3">
-      <div class="thumbnail">
-        <!-- <img src="..." alt="..."> -->
-        <div class="caption">
-          <h3><%= link_to item.title, item_path(item) %></h3>
-          <p><%= number_to_currency(item.price) %></p>
-          <% if current_user %>
-            <%= button_to 'Add to Cart', line_items_path(item_id: item), class: "btn btn-primary" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <% end %>
-  </div>
-</div>
+<% @categories.each do |category| %>
+<li><%= link_to category.title, category_path(category) %></li>
+<% end %>
+
+<h1><%= @category.title %></h1>
+<% @category.items.each do |item| %>
+  <h3><%= link_to item.title, item_path(item) %></h3>
+  <p>$<%= item.price.to_f/100 %></p>
+  <% if current_user %>
+    <%= button_to 'Add to Cart', line_items_path(item_id: item) %></li>
+  <% end %>
+<% end %>
