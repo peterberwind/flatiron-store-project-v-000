@@ -7,7 +7,7 @@
 
 class Cart < ActiveRecord::Base
   belongs_to :user
-  has_many :line_ites
+  has_many :line_items
   has_many :items, through: :line_ites
 
   def total
